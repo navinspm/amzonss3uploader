@@ -1,0 +1,28 @@
+This application used to upload your files to amazon s3 cloud
+
+You need regular carrierwave in setup
+
+then in your uploader change like
+    
+     storage :fog
+
+install gem "fog", "~> 1.3.1"
+
+config/initializers create new file called carrierwave.rb
+
+in that 
+
+    CarrierWave.configure do |config|
+		config.fog_credentials = {
+			provider: "AWS",
+			aws_access_key_id: "",
+			aws_secret_access_key: "",
+			region: ""
+		}
+		config.fog_directory=""
+
+    end
+
+fill those with your amazon credentials
+
+thats all
